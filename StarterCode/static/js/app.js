@@ -14,11 +14,13 @@ function pageLoader(){
       });
    
 }
+//creat function that changes each chart wehn dropdown value is changed
 function optionChanged(newName){
     createTable(newName)
     createChart(newName)
 }
 
+//create function that loads value from drop down into the sample metadata chart
 function createTable(sampleName){
     var panel = d3.select("#sample-metadata")
     panel.html("")
@@ -32,6 +34,7 @@ function createTable(sampleName){
     })
 }
 
+//create function that will load values into charts
 function createChart(charts){
     d3.json("samples.json").then(function(data){
         var filterSamples = data.samples.filter(data => data.id == charts)[0]
